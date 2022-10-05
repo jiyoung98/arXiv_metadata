@@ -19,6 +19,7 @@ def arxiv_request(request_url, outputs=[]):
     for meta in metas:
         a = OrderedDict()
         metadatas = [child for child in meta.contents if child != '\n']
+        
         for metadata in metadatas:
             name = metadata.name.replace("dc:","")
             content = metadata.text
@@ -33,6 +34,7 @@ def arxiv_request(request_url, outputs=[]):
             if content.startswith("http://arxiv.org/abs/"):
                 pdf_url = content.replace("abs","pdf")+".pdf"
                 a['pdf_url'] = pdf_url
+        
         outputs.append(a)
 
     return resumptionToken, outputs

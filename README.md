@@ -11,17 +11,17 @@ cd arXiv_metadata
 python3 -m venv venv
 source ./venv/bin/activate
 (venv) pip install -r requirements.txt
-(venv) python main.py --start 2021-01-15 --end 2021-01-20 --set cs #예시
+(venv) python main.py --start 2021-01-15 --end 2021-01-22 --set cs #예시
 ```
 
 ```
 # OUT        
-CURSOR_NOW: 0/1067
-CURSOR_NOW: 1000/1067
+CURSOR_NOW: 0/1431
+CURSOR_NOW: 1000/1431
 ```
 
 ## Details
-* 예시는 timestamp : 2021-01-15 ~ 2021-01-20, set : cs 의 결과를 반환합니다.
+* 예시는 timestamp : 2021-01-15 ~ 2021-01-22, set : cs 의 결과를 반환합니다.
 * 가능한 set의 목록은 http://export.arxiv.org/oai2?verb=ListSets 를 참조하십시오.(cs, econ 등 올바른 setSpec을 입력하지 않으면 빈 json이 반환됩니다.)
 * start, end, set 인자를 모두 주지 않을 시 현 시점 arXiv에서 제공하는 모든 article의 metadata가 반환됩니다.
   ```
