@@ -22,7 +22,13 @@ def arxiv_request(request_url, outputs=[]):
         for metadata in metadatas:
             name = metadata.name.replace("dc:","")
             content = metadata.text
-            a[name] = content
+            if name in a:
+                if type(a[name]) == str:
+                    a[name] = [a[name],content]
+                else:
+                    a[name].append(content)
+            else:
+                a[name] = content
             # full pdf
             if content.startswith("http://arxiv.org/abs/"):
                 pdf_url = content.replace("abs","pdf")+".pdf"
